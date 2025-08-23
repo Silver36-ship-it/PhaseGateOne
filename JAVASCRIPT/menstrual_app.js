@@ -1,3 +1,4 @@
+var prompt = require('prompt-sync')();
 function displayDates(){
 date =`		1  2  3  4  5  6  7 
 		8  9  10 11 12 13 14
@@ -13,15 +14,15 @@ function displayWelcomePage(){
 		Only works for regular cycle(28-day period)
 		press 1 to enter if eligible`
 	return displayPage}
-//console.log(displayWelcomePage())
+
 function menuPage(){
 	displayMenu =`
 				1. Flow date
 				2. Safe period
 				3. Ovulation time
+				0. To exit the app
 					`
 	return displayMenu}
-	console.log(menuPage())
 	
 function calculateFlowDate(date_input){
 return 28 - date_input}
@@ -48,7 +49,59 @@ function calculateOvulationTime(ovulation_input){
 		return 28 - ovulation_input + ovulation_constant
 		}
 		}
+
+function inAppDisplay(){
+displayFlow = `
+			Welcome!!!
+			Enter the day you saw
+			your period last `
+	return displayFlow}
+				
+			
+
+	console.log(displayWelcomePage())
+	var user_input = prompt('Enter 1: ')
+	if (user_input == 1){
+		console.log(menuPage())}
+		var menu_input = prompt('Enter an option: ')
+		switch(parseInt(menu_input)){
+		case 1: console.log(inAppDisplay());
+			var flowDate_input = prompt('Enter the last day you saw your period: ')
+				let flow_check = calculateFlowDate(flowDate_input);
+				console.log("Your next flow date is " + flow_check + " days time");
+				break;
+		case 2: console.log(inAppDisplay());
+			var safePeriod_input = prompt('Enter the last day you saw your period: ')
+				let safe_periodCheck = calculateSafePeriod(safePeriod_input);
+				console.log(calculateSafePeriod(safe_periodCheck));
+			break;
+		case 3: console.log(inAppDisplay());
+			var ovulationTime_input = prompt('Enter the last day you saw your period: ')
+			let ovulation_check = calculateOvulationTime(ovulationTime_input);
+			console.log("Your next ovulation is in " + ovulation_check + " days time");
+				break;	
+		case 0: console.log("Alright bye!");
+				break;
+		}			
 		
+		
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				
 
 
 
