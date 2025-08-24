@@ -3,7 +3,9 @@ var prompt = require('prompt-sync')();
 function displayWelcomePage(){
 	displayPage = `		
 		Welcome to the Menstrual app!!!
-		Only works for regular cycle(28-day period)
+		
+Note: This app only works for regular cycle(28-day period)
+		
 		press 1 to enter if eligible`
 	return displayPage}
 
