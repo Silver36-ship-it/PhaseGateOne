@@ -19,19 +19,6 @@ function menuPage(){
 function calculateFlowDate(date_input){
 return 28 - date_input}
 
-function calculateSafePeriod(safe_period_input){
-	pre_ovulation_constant = 7
-	post_ovulation_constant = 15
-	post_ovulation_constant2 = 28
-	if(safe_period_input > 0 && safe_period_input <= 7){
-		return pre_ovulation_constant -  safe_period_input}
-	else if(safe_period_input > 7 && safe_period_input < post_ovulation_constant){
-		return post_ovulation_constant - safe_period_input}
-	else if(safe_period_input > 14 && safe_period_input <= 28){
-		return post_ovulation_constant2 - safe_period_input}
-	else 
-		return "Not a valid day"}
-
 function calculateOvulationTime(ovulation_input){
 	ovulation_constant = 14
 	cycle_constant = 28
@@ -46,16 +33,16 @@ function inAppDisplay(){
 displayFlow = `
 			Welcome!!!
 			Enter the day you saw
-			your period last `
+			your period last
+			 `
 	return displayFlow
 	}
 				
-			
-
+	var user_input;		
 	console.log(displayWelcomePage())
-	var user_input = prompt('Enter 1: ')
-	if (user_input == 1){
-		console.log(menuPage())}
+	 user_input = prompt('Enter 1: ')
+	if(user_input == 1){
+		console.log(menuPage())
 		var menu_input = prompt('Enter an option: ')
 		switch(parseInt(menu_input)){
 		case 1: console.log(inAppDisplay());
@@ -65,9 +52,23 @@ displayFlow = `
 				break;
 		case 2: console.log(inAppDisplay());
 			var safePeriod_input = prompt('Enter the last day you saw your period: ')
-				let safe_periodCheck = calculateSafePeriod(safePeriod_input);
-				console.log(calculateSafePeriod(safe_periodCheck));
-			break;
+				pre_ovulation_constant = 7
+				post_ovulation_constant = 15
+				post_ovulation_constant2 = 28
+				if(safePeriod_input > 0 && safePeriod_input <= pre_ovulation_constant){
+					calculate_pre_ovulation = pre_ovulation_constant -  safePeriod_input
+					console.log("You are on your safe period");
+					console.log("You have " + calculate_pre_ovulation + "days left till the end of your safe period")}
+				else if(safePeriod_input > 7 && safePeriod_input < post_ovulation_constant){
+					calculate_post_ovulation = post_ovulation_constant -safePeriod_input
+					console.log("You have " + calculate_post_ovulation + " days left to enter your safe period")}
+				else if(safePeriod_input > 14 && safePeriod_input <= 28){
+					calculate_post_ovulation2 = post_ovulation_constant2 - safePeriod_input
+					console.log("You are currently on your safe period")
+					console.log("You have " + calculate_post_ovulation2 + " days left till the end of your period")}
+				else 
+					console.log(`${"The day you entered is not within my expertise"}\nI recommend you go see a doctor`);
+					break;
 		case 3: console.log(inAppDisplay());
 			var ovulationTime_input = prompt('Enter the last day you saw your period: ')
 			let ovulation_check = calculateOvulationTime(ovulationTime_input);
@@ -76,10 +77,7 @@ displayFlow = `
 		case 0: console.log("Alright bye!");
 				break; 
 		}			
-		
-		
-			
-			
+				}
 			
 			
 			
