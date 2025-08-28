@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.time.LocalDateTime;
 
 public class CheckOutApp{
 public static void main(String[] args){
@@ -9,6 +10,7 @@ ArrayList<String> productName = new ArrayList<>();
 ArrayList<Double> productQuantity = new ArrayList<>();
 ArrayList<Double> productPrize = new ArrayList<>();
 ArrayList<Double> totals = new ArrayList<>();
+LocalDateTime dateTime = LocalDateTime.now();
 double total = 0;
 System.out.println("What is the Customer name? ");
 String CustomerName = input.next();
@@ -53,6 +55,7 @@ while(true){
      System.out.println("SEMICOLON STORES");
      System.out.println("MAIN BRANCH");
      System.out.println("LOCATION 312, HERBERT MACAULAY WAY, SABO YABA, LAGOS");
+     System.out.println(dateTime);
      System.out.println("TEL: 03293828343");
      System.out.println("Cashier: " + userCashier);
      System.out.println("Customer Name: " + CustomerName);
@@ -80,6 +83,7 @@ while(true){
      System.out.println("SEMICOLON STORES");
      System.out.println("MAIN BRANCH");
      System.out.println("LOCATION 312, HERBERT MACAULAY WAY, SABO YABA, LAGOS");
+     System.out.println(dateTime);
      System.out.println("TEL: 03293828343");
      System.out.println("Cashier: " + userCashier);
      System.out.println("Customer Name: " + CustomerName);
